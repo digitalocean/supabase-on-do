@@ -37,17 +37,22 @@ provider "sendgrid" {
   api_key = var.sendgrid_api
 }
 
-#Choose between local or cloud state storage
+############
+# Choose between local or cloud state storage
+############
+
+# IMP. If using local state file management make sure you DO NOT upload your state file in version control as this stores sensitive data
 terraform {
   backend "local" {
     path = "./terraform.tfstate"
   }
 }
 
-# # Use env variable TF_TOKEN_app_terraform_io
-# # or the -var="tf_token=..." CLI option
-# variable "tf_token" {}
-
+# # If you decide to store your state file within Terraform Cloud
+# # - Comment the local backend block above
+# # - Uncomment the cloud backend block below and modify the organization and workspaces options
+# # - Uncomment the `tf_token` variable block within the `variables.tf` file
+# # - Provide the varibale value accordingly (IMP. Secrets shouldn't be stored in version control)
 # terraform {
 #   cloud {
 #     organization = "name-of-org"

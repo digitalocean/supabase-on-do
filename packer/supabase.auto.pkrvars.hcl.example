@@ -1,0 +1,12 @@
+############
+# IMP. The below token should not be stored in version control
+############
+do_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+## REQUIRED ##
+region = "ams3"
+
+## OPTIONAL ##
+# droplet_image = ""
+# droplet_size  = ""
+# tags          = [""]

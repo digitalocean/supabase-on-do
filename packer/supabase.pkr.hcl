@@ -9,10 +9,13 @@ packer {
   }
 }
 
-# # Use can also set DIGITALOCEAN_TOKEN, SPACES_ACCESS_KEY_ID and SPACES_SECRET_ACCESS_KEY env variables
-# # Set the variable value in *.auto.pkvars.hcl file
-# # or using -var "do_token=..." CLI option
-# # variable "do_token" {}
+# Set the variable value in the supabase.auto.pkvars.hcl file
+# or use -var "do_token=..." CLI option
+variable "do_token" {
+  description = "DO API token with read and write permissions."
+  type        = string
+  sensitive   = true
+}
 
 variable "region" {
   description = "The region where the Droplet will be created."

@@ -1,11 +1,41 @@
-# DigitalOcean Supabase
+# Supabase on DigtalOcean - Terraform
 
-## Manual Steps
-Create do_token
-Create domain in DO and change nameservers in domain registrar
-Create SendGrid api token and Single Sender Verification
-_Optional_
-If using Terraform cloud create terraform cloud api key
+> _IMPORTANT:_ A note on secrets/tokens/apis and the `terraform.tfstate` file. Ensure that any files containing secrets/tokens/apis as well as the `terraform.tfstate` file are _NOT_ stored in version control.
+
+```bash
+# From the root of the repository
+cd terraform # Change directory to the terraform directory
+cp terraform.tfvars.example terraform.tfvars # Copy the example file to terraform.tfvars
+
+# Modify the file with your own variables and save
+```
+
+A list of required variables, as well as optional variables with their default values, is documented below. Go through the list a modify the `terraform.tfvars` accordingly with your own values.
+
+After creating the variables run the following commands to deploy the resources:
+
+```bash
+terraform init # Initialise terraform to download any plugin binaries needed
+terraform plan #
+terraform apply #
+```
+
+## Terraform documentation
+
+- The Infra subdirectory has its own `README.md` file containing basic information about the infrastructure created
+- Inputs and Outputs will be automatically documented using pre-commit hooks in the `README.md` file
+  - To automatically create the documentation you need to install the hooks as described below and have the following text within the `README.md` file:
+  ```md
+  <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+  <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+  ```
+- The subdirectory has a `terraform.tfvars.example` file holding example values for variables required to implement the infrastructure. This implementation should be used for local testing only and **should not be used for production-grade implementations.**
+
+## Hooks
+
+Install `pre-commit` and `terraform-docs` (on MacOS, Homebrew has formulae for both).
+
+You can install the pre-commit hooks by running `pre-commit install`.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Providers
