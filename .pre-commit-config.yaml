@@ -1,0 +1,21 @@
+---
+default_stages: [commit]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    - id: trailing-whitespace
+      args: [--markdown-linebreak-ext=md]
+    - id: check-yaml
+      files: '.pre-commit-config.yml'
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.77.0
+    hooks:
+      - id: terraform_fmt
+      - id: terraform_docs
+        args:
+          - --args=--sort-by=required
+          - --args=--hide=requirements
+          - --args=--hide=modules
+          - --args=--hide=data-sources
+          - --args=--hide=resources

@@ -1,0 +1,8 @@
+.DS_Store
+.terraform
+.idea/
+.env.bkp
+*.lock.hcl
+terraform.tfvars
+*.tfstate*
+sender-verification.sh

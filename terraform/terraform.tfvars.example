@@ -1,0 +1,40 @@
+## REQUIRED SECRETS ##
+
+############
+# IMP. The below secrets/tokens/apis should not be stored in version control
+############
+do_token                 = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+sendgrid_api             = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+spaces_access_key_id     = "xxxxxxxxxxxxxxxxxxxx"
+spaces_secret_access_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+## REQUIRED ##
+region    = "ams3"
+domain    = "example.com"
+timezone  = "Europe/Amsterdam"
+auth_user = "admin"
+
+smtp_admin_user = "admin@example.com"
+smtp_addr       = "Company Address"
+smtp_city       = "Company City"
+smtp_country    = "Company Country"
+
+## OPTIONAL ##
+# droplet_image        = ""
+# droplet_size         = ""
+# droplet_backups      = false
+# ssh_pub_file         = ""
+# ssh_keys             = [12345678, 87654321]
+# tags                 = ["admin", "tim"]
+# volume_size          = 100
+# ssh_ip_range         = ["your-own-ip", "office-ip]
+# spaces_restrict_ip   = true
+# smtp_host            = ""
+# smtp_port            = ""
+# smtp_user            = ""
+# smtp_sender_name     = ""
+# smtp_addr_2          = ""
+# smtp_state           = ""
+# smtp_zip_code        = ""
+# smtp_sender_reply_to = ""
+# smtp_nickname        = ""
