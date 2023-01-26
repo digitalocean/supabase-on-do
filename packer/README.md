@@ -30,7 +30,7 @@ packer build . # Build the golden image and upload it as a Snapshot on DO
         ├── realtime.sql
         └── roles.sql
  ```
- and also runs the [setup script](./packer/scripts/setup.sh) that installs `docker` and `docker-compose` onto the image. 
+ and also runs the [setup script](./packer/scripts/setup.sh) that installs `docker` and `docker-compose` onto the image.
  _N.B. If you changed the image to a non Ubuntu/Debian image the script will fail as it uses the `apt` package manager. Should you wish to use a different OS, modify the script with the appropriate package manager._
 
  Throughout the build you might see some warnings/errors. If the build ends with showing the version of Docker Compose and stating that the build was successful, as shown below, you can disregard these messages. Your Snapshot name will be slightly different to the one shown below as the time the build started is appended to the name in the following format `supabase-yyyymmddhhmmss`.
