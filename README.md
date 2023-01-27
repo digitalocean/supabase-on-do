@@ -120,3 +120,7 @@ terraform output -raw psql_pass
 terraform output -raw jwt -raw jwt_anon -raw jwt_service_role
 
 ```
+
+Take a **5-10 min** break and after that point your browser to `supabase.${your-domain}`. When the pop-up asking for your auth details appears enter your provided username and the generated htpasswd.
+
+Enjoy and Happy creating :)

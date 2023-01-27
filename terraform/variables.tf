@@ -44,7 +44,7 @@ variable "region" {
 }
 
 variable "domain" {
-  description = "Domain Name where the Supabase instance is accesable. The final domain will be of the foramt `supabase.example.com`"
+  description = "Domain Name where the Supabase instance is accessible. The final domain will be of the format `supabase.example.com`"
   type        = string
 }
 
@@ -65,7 +65,7 @@ variable "smtp_admin_user" {
 }
 
 variable "smtp_addr" {
-  description = "Company Address of the Verified Sender. Max 100 chracters. If more is needed use `smtp_addr_2`"
+  description = "Company Address of the Verified Sender. Max 100 characters. If more is needed use `smtp_addr_2`"
   type        = string
 }
 
@@ -86,7 +86,7 @@ variable "droplet_image" {
 }
 
 variable "droplet_size" {
-  description = "The unique slug that indentifies the type of Droplet."
+  description = "The unique slug that identifies the type of Droplet."
   type        = string
   default     = "s-1vcpu-2gb"
 }
@@ -129,7 +129,7 @@ variable "ssh_ip_range" {
 }
 
 variable "spaces_restrict_ip" {
-  description = "Boolean signifying wether to restrict the spaces bucket to the droplet and reserved ips (as well as the ssh ips if set) or allow all ips. (N.B. If Enabled this will also disable Bucket access from DO's UI.)"
+  description = "Boolean signifying whether to restrict the spaces bucket to the droplet and reserved ips (as well as the ssh ips if set) or allow all ips. (N.B. If Enabled this will also disable Bucket access from DO's UI.)"
   type        = bool
   default     = false
 }
@@ -153,13 +153,13 @@ variable "smtp_user" {
 }
 
 variable "smtp_sender_name" {
-  description = "Friendly name to show recipent rather than email address. Defaults to the email address specified in the `smtp_admin_user` variable."
+  description = "Friendly name to show recipient rather than email address. Defaults to the email address specified in the `smtp_admin_user` variable."
   type        = string
   default     = ""
 }
 
 variable "smtp_addr_2" {
-  description = "Company Address Line 2. Max 100 chracters."
+  description = "Company Address Line 2. Max 100 characters."
   type        = string
   default     = ""
 }
@@ -177,7 +177,7 @@ variable "smtp_zip_code" {
 }
 
 variable "smtp_nickname" {
-  description = "Nickname to show recipent. Defaults to `smtp_sender_name` or the email address specified in the `smtp_admin_user` variable if neither are specified."
+  description = "Nickname to show recipient. Defaults to `smtp_sender_name` or the email address specified in the `smtp_admin_user` variable if neither are specified."
   type        = string
   default     = ""
 }
@@ -189,7 +189,7 @@ variable "smtp_reply_to" {
 }
 
 variable "smtp_reply_to_name" {
-  description = "Friendly name to show recipent rather than email address in the `reply-to` field within an email. Defaults to `smtp_sender_name` or `smtp_reply_to` if `smtp_sender_name` is not set, or the email address specified in the `smtp_admin_user` variable if neither are specified."
+  description = "Friendly name to show recipient rather than email address in the `reply-to` field within an email. Defaults to `smtp_sender_name` or `smtp_reply_to` if `smtp_sender_name` is not set, or the email address specified in the `smtp_admin_user` variable if neither are specified."
   type        = string
   default     = ""
 }

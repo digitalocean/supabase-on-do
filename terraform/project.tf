@@ -1,6 +1,6 @@
 ############
-# The Project resource is not working 100% to my liking so for now it is commented out
-# This is more of a nice to have and thereofre will look/debug it at a lter stage
+# The Project resource is not working 100% to my liking, so for now it is commented out.
+# This is more of a nice to have and therefore will look/debug it at a later stage as I don't want to block releasing this project.
 ############
 
 # resource "time_sleep" "wait_15_seconds_ip" {

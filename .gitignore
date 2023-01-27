@@ -7,3 +7,4 @@ terraform.tfvars
 *.tfstate*
 sender-verification.sh
 supabase.auto.pkrvars.hcl
+.vscode/

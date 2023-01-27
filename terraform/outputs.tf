@@ -28,7 +28,7 @@ output "jwt_service_role" {
   sensitive = true
 }
 
-output "droplet_voluem_id" {
+output "droplet_volume_id" {
   value = digitalocean_volume.this.id
 }
 
