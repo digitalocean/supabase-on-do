@@ -59,10 +59,11 @@ git clone https://github.com/digitalocean/supabase-on-do.git
 cd supabase-on-do
 ```
 
-After cloning the repo, our next step is to build a snapshot of the Droplet we will be running, by following the documentation in the [packer directory](./packer). And after we will deploy our resources using terraform as specified [here](./terraform).
+1. After cloning the repo, our next step is to build a snapshot of the Droplet we will be running, by following the documentation in the [packer directory](./packer).
+2. And after we will deploy our resources using terraform as specified [here](./terraform).
 
-## TLDR
-_Or the - I didn't want to read the next sections, just give me the commands to run, I trust you version_
+## _TLDR_
+_Or the - I didn't want to read the next sections, just give me the commands to run, I trust you - version_
 
 ### Run Packer to create the Snapshot
 
