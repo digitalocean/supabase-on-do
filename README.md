@@ -60,7 +60,7 @@ cd supabase-on-do
 ```
 
 1. After cloning the repo, our next step is to build a snapshot of the Droplet we will be running, by following the documentation in the [packer directory](./packer).
-2. And after we will deploy our resources using terraform as specified [here](./terraform).
+2. Finally we will deploy our resources using terraform as specified [here](./terraform).
 
 ## _TLDR_
 _Or the - I didn't want to read the next sections, just give me the commands to run, I trust you - version_
@@ -104,6 +104,10 @@ terraform plan
 
 ## Apply the changes specified by confirming at the prompt
 ## (--auto-approve if you're feeling adventures)
+terraform apply
+
+## Apply again to verify the SendGrid components
+## (needed as they are created before the domain records in DO)
 terraform apply
 ```
 
