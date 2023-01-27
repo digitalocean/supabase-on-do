@@ -1,4 +1,4 @@
-# Supabase on DigtalOcean - Terraform
+# Supabase on DigitalOcean - Terraform
 
 > _IMPORTANT:_ A note on secrets/tokens/apis and the `terraform.tfstate` file. Ensure that any files containing secrets/tokens/apis as well as the `terraform.tfstate` file are _NOT_ stored in version control.
 

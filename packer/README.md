@@ -1,4 +1,4 @@
-# Supabase on DigtalOcean - Packer
+# Supabase on DigitalOcean - Packer
 
 > _IMPORTANT:_ A note on secrets/tokens/apis. Ensure that any files containing secrets/tokens/apis are _NOT_ stored in version control.
 
