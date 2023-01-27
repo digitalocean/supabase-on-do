@@ -12,7 +12,7 @@ cp supabase.auto.pkrvars.hcl.example supabase.auto.pkrvars.hcl # Copy the exampl
 # Modify the file with your own variables and save
 ```
 
-After creating the variables you can create the golden image and upload the Snapshot to DO by running the following commands:
+After creating the variables you can create the snapshot and upload it to DO by running the following commands:
 
 ```bash
 packer init . # Initialise packer to download any plugin binaries needed
@@ -20,7 +20,9 @@ packer build . # Build the golden image and upload it as a Snapshot on DO
 ```
 
 **_What's happening in the background_**
+
  A DigitalOcean Droplet is temporarily spun up to create the Snapshot. Within this Droplet, Packer copies the [supabase](./packer/supabase) directory that contains the following files:
+
  ```bash
  .
 ├── docker-compose.yml # Containers to run Supabase on a Droplet
@@ -30,12 +32,14 @@ packer build . # Build the golden image and upload it as a Snapshot on DO
         ├── realtime.sql
         └── roles.sql
  ```
+
  and also runs the [setup script](./packer/scripts/setup.sh) that installs `docker` and `docker-compose` onto the image.
+
  _N.B. If you changed the image to a non Ubuntu/Debian image the script will fail as it uses the `apt` package manager. Should you wish to use a different OS, modify the script with the appropriate package manager._
 
- Throughout the build you might see some warnings/errors. If the build ends with showing the version of Docker Compose and stating that the build was successful, as shown below, you can disregard these messages. Your Snapshot name will be slightly different to the one shown below as the time the build started is appended to the name in the following format `supabase-yyyymmddhhmmss`.
+ Throughout the build you might see some warnings/errors. If the build ends with showing the version of Docker Compose installed and stating that the build was successful, as shown below, you can disregard these messages. Your Snapshot name will be slightly different to the one shown below as the time the build started is appended to the name in the following format `supabase-yyyymmddhhmmss`.
 
-```bash
+```md
     digitalocean.supabase: Docker Compose version v2.15.1
 ==> digitalocean.supabase: Gracefully shutting down droplet...
 ==> digitalocean.supabase: Creating snapshot: supabase-20230126130703
