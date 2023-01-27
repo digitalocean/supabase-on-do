@@ -4,7 +4,7 @@
 ############
 resource "null_resource" "sendgrid_single_sender" {
   provisioner "local-exec" {
-    command = "cp ./files/sender-verification.sh.tmpl ./files/sender-verification.sh && chmod +x ./files/sender-verification.sh.tmpl && ./files/sender-verification.sh"
+    command = "cp ./files/sender-verification.sh.tmpl ./files/sender-verification.sh && chmod +x ./files/sender-verification.sh && ./files/sender-verification.sh"
 
     environment = {
       API           = var.sendgrid_api

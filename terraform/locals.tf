@@ -1,11 +1,11 @@
 resource "random_password" "psql" {
-  length           = 16
+  length           = 32
   special          = true
   override_special = "-_"
 }
 
 resource "random_password" "htpasswd" {
-  length           = 16
+  length           = 32
   special          = true
   override_special = "-_"
 }
@@ -19,7 +19,7 @@ resource "htpasswd_password" "hash" {
 }
 
 resource "random_password" "jwt" {
-  length           = 32
+  length           = 40
   special          = true
   override_special = "-_"
 }

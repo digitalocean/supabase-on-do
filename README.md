@@ -59,4 +59,60 @@ git clone https://github.com/digitalocean/supabase-on-do.git
 cd supabase-on-do
 ```
 
-After cloning the repo, our next step is to build a snapshot of the Droplet we will be running, by following the documentation in the [packer directory](./packer).
+After cloning the repo, our next step is to build a snapshot of the Droplet we will be running, by following the documentation in the [packer directory](./packer). And after we will deploy our resources using terraform as specified [here](./terraform).
+
+## TLDR
+_Or the - I didn't want to read the next sections, just give me the commands to run, I trust you version_
+
+### Run Packer to create the Snapshot
+
+```bash
+## From the root of the repository change directory to the packer directory
+cd packer
+
+## Copy the example file to supabase.auto.pkrvars.hcl, modify it with your own variables and save
+cp supabase.auto.pkrvars.hcl.example supabase.auto.pkrvars.hcl
+```
+
+```bash
+## Initialise packer to download any plugin binaries needed
+packer init .
+
+## Build the snapshot and upload it as a Snapshot on DO
+packer build .
+```
+
+### Run Terraform to create the resources
+
+```bash
+## From the root of the repository change directory to the terraform directory (from the packer directory  use ../terraform)
+cd terraform
+
+## Copy the example file to terraform.tfvars, modify it with your own variables and save
+cp terraform.tfvars.example terraform.tfvars
+```
+
+```bash
+## Initialise terraform to download any plugin binaries needed
+terraform init
+
+## Create and show a plan of what will be created (skip if you want to apply immediately)
+terraform plan
+
+## Apply the changes specified by confirming at the prompt (--auto-approve if you're feeling adventures)
+terraform apply
+```
+
+### Show generated passwords and tokens for later use
+
+```bash
+## Show the generated auth password
+terraform output -raw htpasswd
+
+## Show the generated psql password
+terraform output -raw psql_pass
+
+## Show the
+terraform output -raw jwt -raw jwt_anon -raw jwt_service_role
+
+```

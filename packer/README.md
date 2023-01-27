@@ -5,19 +5,24 @@
 The initial step is to create a Snapshot, using Packer, and storing it on DigitalOcean. To do this you'll have to input some variables within a `supabase.auto.pkrvars.hcl` file. An [example](./supabase.auto.pkrvars.hcl.example) file has been provided.
 
 ```bash
-# From the root of the repository
-cd packer # Change directory to the packer directory
-cp supabase.auto.pkrvars.hcl.example supabase.auto.pkrvars.hcl # Copy the example file to supabase.auto.pkrvars.hcl
+## From the root of the repository change directory to the packer directory
+cd packer
 
-# Modify the file with your own variables and save
+## Copy the example file to supabase.auto.pkrvars.hcl, modify it with your own variables and save
+cp supabase.auto.pkrvars.hcl.example supabase.auto.pkrvars.hcl
 ```
 
 After creating the variables you can create the snapshot and upload it to DO by running the following commands:
 
 ```bash
-packer init . # Initialise packer to download any plugin binaries needed
-packer build . # Build the golden image and upload it as a Snapshot on DO
+## Initialise packer to download any plugin binaries needed
+packer init .
+
+## Build the snapshot and upload it as a Snapshot on DO
+packer build .
 ```
+
+## Packer file structure
 
 **_What's happening in the background_**
 
