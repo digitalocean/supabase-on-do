@@ -86,7 +86,8 @@ packer build .
 ### Run Terraform to create the resources
 
 ```bash
-## From the root of the repository change directory to the terraform directory (from the packer directory  use ../terraform)
+## From the root of the repository change directory to the terraform directory
+## (from the packer directory  use ../terraform)
 cd terraform
 
 ## Copy the example file to terraform.tfvars, modify it with your own variables and save
@@ -97,10 +98,12 @@ cp terraform.tfvars.example terraform.tfvars
 ## Initialise terraform to download any plugin binaries needed
 terraform init
 
-## Create and show a plan of what will be created (skip if you want to apply immediately)
+## Create and show a plan of what will be created
+## (skip if you want to apply immediately)
 terraform plan
 
-## Apply the changes specified by confirming at the prompt (--auto-approve if you're feeling adventures)
+## Apply the changes specified by confirming at the prompt
+## (--auto-approve if you're feeling adventures)
 terraform apply
 ```
 
@@ -113,7 +116,7 @@ terraform output -raw htpasswd
 ## Show the generated psql password
 terraform output -raw psql_pass
 
-## Show the
+## Show the generated jwt secret and tokens
 terraform output -raw jwt -raw jwt_anon -raw jwt_service_role
 
 ```

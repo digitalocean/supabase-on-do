@@ -62,4 +62,6 @@ Build 'digitalocean.supabase' finished after 5 minutes 8 seconds.
 You'll be able to see the snapshot in the images section of the DigitalOcean UI.
 ![Snapshot UI](../assets/Snapshots-UI.png "Snapshot UI")
 
-Now that we've created a snapshot with Docker and Docker Compose installed on it as well as the required `docker-compose.yml` and `conf` files, we will use Terraform to deploy all the resources required to have Supabase up and running on DigitalOcean. The next steps can be found in the [terraform directory](../terraform/).
+Now that we've created a snapshot with Docker and Docker Compose installed on it as well as the required `docker-compose.yml` and `conf` files, we will use Terraform to deploy all the resources required to have Supabase up and running on DigitalOcean.
+
+* The next steps can be found in the [terraform directory](../terraform/).
