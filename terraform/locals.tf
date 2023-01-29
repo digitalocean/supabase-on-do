@@ -106,7 +106,7 @@ locals {
       TF_SMTP_SENDER_NAME         = "${local.smtp_sender_name}",
       TF_DISCORD_ENABLED          = "${var.discord_auth_enable}",
       TF_DISCORD_CLIENT_ID        = "${var.discord_client_id}",
-      TF_DISCORD_SECRET    = "${var.discord_secret}",
+      TF_DISCORD_SECRET           = "${var.discord_secret}",
     }
   )
 
