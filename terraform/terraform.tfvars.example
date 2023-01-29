@@ -8,6 +8,10 @@ sendgrid_api             = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 spaces_access_key_id     = "xxxxxxxxxxxxxxxxxxxx"
 spaces_secret_access_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
+discord_client_id        = "xxxxxxxxxxxxxxxxxxxx"
+discord_secret           = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+discord_auth_enable      = false
+
 ## REQUIRED ##
 region    = "ams3"
 domain    = "example.com"

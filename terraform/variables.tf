@@ -193,3 +193,22 @@ variable "smtp_reply_to_name" {
   type        = string
   default     = ""
 }
+
+# Auth
+variable "discord_client_id" {
+    description = "Discord Client ID for OAuth."
+    type        = string
+    default     = ""
+}
+
+variable "discord_secret" {
+    description = "Discord Secret for OAuth."
+    type        = string
+    default     = ""
+}
+
+variable "discord_auth_enable" {
+    description = "Boolean signifying whether to enable Discord OAuth."
+    type        = bool
+    default     = false
+}
