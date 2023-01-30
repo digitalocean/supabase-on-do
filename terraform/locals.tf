@@ -18,6 +18,12 @@ resource "htpasswd_password" "hash" {
   }
 }
 
+resource "time_static" "jwt_iat" {}
+
+resource "time_static" "jwt_exp" {
+  rfc3339 = timeadd(time_static.jwt_iat.rfc3339, "43829h") # Add 5 Years
+}
+
 resource "random_password" "jwt" {
   length           = 40
   special          = true
@@ -31,8 +37,8 @@ resource "jwt_hashed_token" "anon" {
     {
       role = "anon"
       iss  = "supabase"
-      iat  = 1674514800
-      exp  = 1832281200
+      iat  = time_static.jwt_iat.unix
+      exp  = time_static.jwt_exp.unix
     }
   )
 }
@@ -44,8 +50,8 @@ resource "jwt_hashed_token" "service_role" {
     {
       role = "service_role"
       iss  = "supabase"
-      iat  = 1674514800
-      exp  = 1832281200
+      iat  = time_static.jwt_iat.unix
+      exp  = time_static.jwt_exp.unix
     }
   )
 }
