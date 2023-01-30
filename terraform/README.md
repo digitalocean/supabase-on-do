@@ -202,13 +202,15 @@ Then run the `pre-commit install` command to install the pre-commit hooks specif
 
 | Name | Description |
 |------|-------------|
-| <a name="output_bucket"></a> [bucket](#output\_bucket) | n/a |
-| <a name="output_droplet_volume_id"></a> [droplet\_volume\_id](#output\_droplet\_volume\_id) | n/a |
-| <a name="output_htpasswd"></a> [htpasswd](#output\_htpasswd) | n/a |
-| <a name="output_jwt"></a> [jwt](#output\_jwt) | n/a |
-| <a name="output_jwt_anon"></a> [jwt\_anon](#output\_jwt\_anon) | n/a |
-| <a name="output_jwt_service_role"></a> [jwt\_service\_role](#output\_jwt\_service\_role) | n/a |
-| <a name="output_psql_pass"></a> [psql\_pass](#output\_psql\_pass) | n/a |
-| <a name="output_reserved_ip"></a> [reserved\_ip](#output\_reserved\_ip) | n/a |
-| <a name="output_sendgrid_generated_api"></a> [sendgrid\_generated\_api](#output\_sendgrid\_generated\_api) | n/a |
+| <a name="output_bucket"></a> [bucket](#output\_bucket) | The unique name of the bucket in the format `supabase-ab12cd34ef56gh78`. |
+| <a name="output_droplet_volume_id"></a> [droplet\_volume\_id](#output\_droplet\_volume\_id) | The unique identifier for the volume attached to the droplet. |
+| <a name="output_htpasswd"></a> [htpasswd](#output\_htpasswd) | Randomly generated 32 character password for authentication via Nginx. |
+| <a name="output_jwt"></a> [jwt](#output\_jwt) | Randomly generated 40 character jwt secret. |
+| <a name="output_jwt_anon"></a> [jwt\_anon](#output\_jwt\_anon) | The HS256 generated jwt token for the `anon` role. |
+| <a name="output_jwt_exp"></a> [jwt\_exp](#output\_jwt\_exp) | The Expiration time for the `anon` and `service_role` jwt tokens in epoch time. |
+| <a name="output_jwt_iat"></a> [jwt\_iat](#output\_jwt\_iat) | The Issued At time for the `anon` and `service_role` jwt tokens in epoch time. |
+| <a name="output_jwt_service_role"></a> [jwt\_service\_role](#output\_jwt\_service\_role) | The HS256 generated jwt token for the `service_role` role. |
+| <a name="output_psql_pass"></a> [psql\_pass](#output\_psql\_pass) | Randomly generated 32 character password for the Postgres database. |
+| <a name="output_reserved_ip"></a> [reserved\_ip](#output\_reserved\_ip) | The Reserved IP assigned to the droplet. |
+| <a name="output_sendgrid_generated_api"></a> [sendgrid\_generated\_api](#output\_sendgrid\_generated\_api) | SendGrid API key to allow sending of emails (The api key is limited to Send Mail scope only). |
   <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
