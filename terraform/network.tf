@@ -2,6 +2,7 @@ data "digitalocean_domain" "this" {
   name = var.domain
 }
 
+# Wait for the Volume to mount to the Droplet to ensure "Resource Busy" error is not encountered
 resource "time_sleep" "wait_20_seconds" {
   depends_on = [digitalocean_droplet.this]
 
