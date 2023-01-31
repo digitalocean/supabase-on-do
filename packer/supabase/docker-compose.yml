@@ -17,8 +17,6 @@ services:
       - URL=${DOMAIN}
       - VALIDATION=dns
       - SUBDOMAINS=supabase
-      - CERTPROVIDER=zerossl
-      - EMAIL=zerossl@themamo.com
       - DNSPLUGIN=digitalocean
       - ONLY_SUBDOMAINS=true
     volumes:
