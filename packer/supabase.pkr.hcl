@@ -53,6 +53,7 @@ source "digitalocean" "supabase" {
   snapshot_name = local.snapshot_name
   tags          = local.tags
   ssh_username  = "root"
+  api_token     = var.do_token
 }
 
 build {
