@@ -154,10 +154,10 @@ Then run the `pre-commit install` command to install the pre-commit hooks specif
 | Name | Version |
 |------|---------|
 | <a name="provider_cloudinit"></a> [cloudinit](#provider\_cloudinit) | 2.2.0 |
-| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.25.2 |
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | ~> 2.25.0 |
 | <a name="provider_htpasswd"></a> [htpasswd](#provider\_htpasswd) | 1.0.4 |
 | <a name="provider_jwt"></a> [jwt](#provider\_jwt) | 1.1.0 |
-| <a name="provider_null"></a> [null](#provider\_null) | 3.2.1 |
+| <a name="provider_null"></a> [null](#provider\_null) | n/a |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.4.3 |
 | <a name="provider_sendgrid"></a> [sendgrid](#provider\_sendgrid) | 0.2.0 |
 | <a name="provider_time"></a> [time](#provider\_time) | 0.9.1 |
