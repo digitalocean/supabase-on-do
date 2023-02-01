@@ -99,6 +99,7 @@ locals {
       TF_ANON_KEY                 = "${jwt_hashed_token.anon.token}",
       TF_SERVICE_ROLE_KEY         = "${jwt_hashed_token.service_role.token}",
       TF_DOMAIN                   = "${var.domain}",
+      TF_SITE_URL                 = "${var.site_url}",
       TF_TIMEZONE                 = "${var.timezone}",
       TF_REGION                   = "${var.region}",
       TF_SPACES_BUCKET            = "${digitalocean_spaces_bucket.this.name}",

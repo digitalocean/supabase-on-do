@@ -44,7 +44,12 @@ variable "region" {
 }
 
 variable "domain" {
-  description = "Domain Name where the Supabase instance is accessible. The final domain will be of the format `supabase.example.com`"
+  description = "Domain name where the Supabase instance is accessible. The final domain will be of the format `supabase.example.com`"
+  type        = string
+}
+
+variable "site_url" {
+  description = "Domain name of your application in the format."
   type        = string
 }
 
