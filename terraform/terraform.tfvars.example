@@ -13,6 +13,7 @@ region    = "ams3"
 domain    = "example.com"
 timezone  = "Europe/Amsterdam"
 auth_user = "admin"
+site_url  = "app.example.com"
 
 smtp_admin_user = "admin@example.com"
 smtp_addr       = "Company Address"
