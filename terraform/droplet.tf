@@ -1,5 +1,5 @@
 data "digitalocean_droplet_snapshot" "supabase" {
-  name_regex  = "^supabase-"
+  name_regex  = "^supabase-20\\d{12}$"
   region      = var.region
   most_recent = true
 }

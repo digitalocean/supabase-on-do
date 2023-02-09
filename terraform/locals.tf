@@ -73,6 +73,23 @@ locals {
 
   spaces_ip_range = var.spaces_restrict_ip ? local.spaces_restricted_ip_range : ["0.0.0.0/0", "::/0"]
 
+  inbound_rule_ssh = var.enable_ssh ? [{
+    protocol         = "tcp"
+    port_range       = "22"
+    source_addresses = var.ssh_ip_range
+  }] : []
+
+  inbound_rule_db = var.enable_db_con ? [{
+    protocol         = "tcp"
+    port_range       = "5432"
+    source_addresses = var.db_ip_range
+  }] : []
+
+  inbound_rule = concat(
+    local.inbound_rule_ssh,
+    local.inbound_rule_db
+  )
+
   tags = concat(
     local.default_tags,
     var.tags
