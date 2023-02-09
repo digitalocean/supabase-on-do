@@ -75,7 +75,7 @@ terraform output jwt_anon
 terraform output jwt_service_role
 ```
 
-Now take a **5-10 min** break and grab a coffee, cup of tea, etc. The Droplet needs time to download all the containers, extract them, configure ssl certs and more (I'm not kidding, the supabase-db container alone is over 1 GB).
+Now take a **5-10 min** break and grab a coffee, cup of tea, etc. The Droplet needs time to download all the containers, extract them, configure ssl certs and more (I’m not kidding, the supabase-db container alone is over 1GB to download and when extracted is over 2GB).
 
 After taking a well deserved little break go to your browser and input the supabase domain in the format `supabase.${your-domain}`. A pop-up appears asking you to enter your authentication details (your provided username and the generated htpasswd).
 

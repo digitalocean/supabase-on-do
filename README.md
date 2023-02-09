@@ -4,7 +4,7 @@
 
 ## Running Supabase on DigitalOcean
 
-We will be deploying the following architecture.
+We will self-host Supabase by deploying the following architecture.
 ![Supabase on DigitalOcean](./assets/Supabase-on-DO-white-bkg.png "Supabase on DigitalOcean")
 
 ### Docker Compose
@@ -23,7 +23,7 @@ In addition to the above components, the docker-compose file also runs [swag](ht
 
 ### DigitalOcean Components
 
-All of the above will be running on a DigitalOcean Droplet. Persistent storage for the database is provided via a Volume attached to the Droplet and object storage, for artifacts like profile pics and more, will be achieved using Spaces. A Domain, Reserved IP and Firewall are also setup to ensure we can securely access our Supabase instance from the web.
+All of the above will be running on a DigitalOcean [Droplet](https://www.digitalocean.com/products/droplets). Persistent storage for the database is provided via a [Volume](https://www.digitalocean.com/products/block-storage) attached to the Droplet and object storage, for artifacts like profile pics and more, will be achieved using [Spaces](https://www.digitalocean.com/products/spaces ). A Domain, Reserved IP and Firewall are also setup to ensure we can securely access our Supabase instance from the web.
 
 ### SendGrid
 
@@ -115,13 +115,15 @@ terraform apply
 
 ```bash
 ## Show the generated auth password
-terraform output -raw htpasswd
+terraform output htpasswd
 
 ## Show the generated psql password
-terraform output -raw psql_pass
+terraform output psql_pass
 
 ## Show the generated jwt secret and tokens
-terraform output -raw jwt -raw jwt_anon -raw jwt_service_role
+terraform output jwt
+terraform output jwt_anon
+terraform output jwt_service_role
 
 ```
 
