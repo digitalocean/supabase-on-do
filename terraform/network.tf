@@ -27,14 +27,19 @@ resource "digitalocean_record" "a_record" {
 }
 
 resource "digitalocean_firewall" "this" {
-  name = "supabase"
+  name        = "supabase"
+  droplet_ids = [digitalocean_droplet.this.id]
 
   tags = local.tags
 
-  inbound_rule {
-    protocol         = "tcp"
-    port_range       = "22"
-    source_addresses = var.ssh_ip_range
+  dynamic "inbound_rule" {
+    for_each = local.inbound_rule == null ? [] : local.inbound_rule
+
+    content {
+      protocol         = inbound_rule.value.protocol
+      port_range       = inbound_rule.value.port_range
+      source_addresses = inbound_rule.value.source_addresses
+    }
   }
 
   inbound_rule {

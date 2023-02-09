@@ -126,11 +126,28 @@ variable "volume_size" {
   default     = 25
 }
 
+variable "enable_ssh" {
+  description = "Boolean enabling connections to droplet via SSH by opening port 22 on the firewall."
+  type        = bool
+  default     = true
+}
+
 variable "ssh_ip_range" {
-  description = "An array of strings containing the IPv4 addresses and/or IPv4 CIDRs from which the inbound traffic will be accepted. Defaults to ALL IPv4s but it is highly suggested to choose a smaller subset."
+  description = "An array of strings containing the IPv4 addresses and/or IPv4 CIDRs from which the inbound traffic will be accepted for SSH. Defaults to ALL IPv4s but it is highly suggested to choose a smaller subset."
   type        = list(string)
   default     = ["0.0.0.0/0"]
-  sensitive   = true
+}
+
+variable "enable_db_con" {
+  description = "Boolean enabling connections to database by opening port 5432 on the firewall."
+  type        = bool
+  default     = false
+}
+
+variable "db_ip_range" {
+  description = "An array of strings containing the IPv4 addresses and/or IPv4 CIDRs from which the inbound traffic will be accepted for the Database. Defaults to ALL IPv4s but it is highly suggested to choose a smaller subset."
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
 }
 
 variable "spaces_restrict_ip" {
