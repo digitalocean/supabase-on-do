@@ -199,6 +199,8 @@ Then run the `pre-commit install` command to install the pre-commit hooks specif
 | <a name="input_ssh_ip_range"></a> [ssh\_ip\_range](#input\_ssh\_ip\_range) | An array of strings containing the IPv4 addresses and/or IPv4 CIDRs from which the inbound traffic will be accepted for SSH. Defaults to ALL IPv4s but it is highly suggested to choose a smaller subset. | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | A list of SSH key IDs or fingerprints to enable in the format [12345, 123456]. Only one of `var.ssh_keys` or `var.ssh_pub_file` needs to be specified and should be used. | `list(string)` | `[]` | no |
 | <a name="input_ssh_pub_file"></a> [ssh\_pub\_file](#input\_ssh\_pub\_file) | The path to the public key ssh file. Only one of var.ssh\_pub\_file or var.ssh\_keys needs to be specified and should be used. | `string` | `""` | no |
+| <a name="input_studio_org"></a> [studio\_org](#input\_studio\_org) | Organization for Studio Configuration. | `string` | `"Default Organization"` | no |
+| <a name="input_studio_project"></a> [studio\_project](#input\_studio\_project) | Project for Studio Configuration. | `string` | `"Default Project"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A list of the tags to be added to the default (`["supabase", "digitalocean", "terraform"]`) Droplet tags. | `list(string)` | `[]` | no |
 | <a name="input_volume_size"></a> [volume\_size](#input\_volume\_size) | The size of the block storage volume in GiB. If updated, can only be expanded. | `number` | `25` | no |
 
