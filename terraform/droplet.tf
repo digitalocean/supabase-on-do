@@ -19,6 +19,9 @@ data "cloudinit_config" "this" {
     filename     = "init.sh"
     content      = <<-EOF
       #!/bin/bash
+      mkdir -p /mnt/supabase_volume
+      sudo mount -o defaults,nofail,discard,noatime /dev/disk/by-id/scsi-0DO_Volume_supabase-volume /mnt/supabase_volume
+      sleep 10
       mkdir -p /mnt/supabase_volume/supabase/data
       cd /root/supabase
       /usr/bin/docker compose -f /root/supabase/docker-compose.yml up -d
