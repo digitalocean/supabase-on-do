@@ -4,27 +4,22 @@
 # Install Docker
 
 # Update existing packages:
-sudo apt -y update
-# Install prerequisite packages which let apt use packages over HTTPS:
-sudo apt -y install apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get -y update
+sudo apt-get -y install \
+    ca-certificates \
+    curl \
+    gnupg
 # Add the GPG key for the official Docker repository to the system:
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo mkdir -m 0755 -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 # Add the Docker repository to APT sources:
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 # Install Docker:
-sudo apt -y update
-sudo apt -y install docker-ce
-
-
-# Install Docker Compose
-
-# Get the docker compose lates version number:
-COMPOSE_VERSION=`git ls-remote https://github.com/docker/compose | grep refs/tags | grep -oE "[0-9]+\.[0-9][0-9]+\.[0-9]+$" | sort --version-sort | tail -n 1`
-# Download docker compose and save the executable file at ~/.docker/docker-cli-plugins/:
-mkdir -p ~/.docker/cli-plugins/
-curl -SL https://github.com/docker/compose/releases/download/v${COMPOSE_VERSION}/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
-# Set correct permissions so that the docker-compose command is executable:
-chmod +x ~/.docker/cli-plugins/docker-compose
+sudo apt-get -y update
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 #Test your installation:
 docker compose version

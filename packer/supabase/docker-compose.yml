@@ -48,8 +48,6 @@ services:
 
       SUPABASE_URL: http://kong:8000
       SUPABASE_PUBLIC_URL: ${SUPABASE_PUBLIC_URL}
-      # Kept for backwards compatibility with studio:0.22.08
-      SUPABASE_REST_URL: ${API_EXTERNAL_URL}/rest/v1/
       SUPABASE_ANON_KEY: ${ANON_KEY}
       SUPABASE_SERVICE_KEY: ${SERVICE_ROLE_KEY}
 
@@ -203,7 +201,7 @@ services:
 
   imgproxy:
     container_name: supabase-imgproxy
-    image: darthsim/imgproxy:v3.11
+    image: darthsim/imgproxy:v3.13
     healthcheck:
       test: [ "CMD", "imgproxy", "health" ]
       timeout: 5s
@@ -213,8 +211,9 @@ services:
       IMGPROXY_BIND: ":5001"
       IMGPROXY_LOCAL_FILESYSTEM_ROOT: /
       IMGPROXY_USE_ETAG: "true"
+      IMGPROXY_ENABLE_WEBP_DETECTION: ${IMGPROXY_ENABLE_WEBP_DETECTION}
     volumes:
-      - ./volumes/storage:/var/lib/storage
+      - ./volumes/storage:/var/lib/storage:z
 
   meta:
     container_name: supabase-meta
@@ -233,7 +232,7 @@ services:
 
   db:
     container_name: supabase-db
-    image: supabase/postgres:15.1.0.42-rc2
+    image: supabase/postgres:15.1.0.54-rc0
     healthcheck:
       test: pg_isready -U postgres -h localhost
       interval: 5s
@@ -258,8 +257,9 @@ services:
       PGDATABASE: ${POSTGRES_DB}
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
-      - ./volumes/db/realtime.sql:/docker-entrypoint-initdb.d/realtime.sql
-      - ./volumes/db/roles.sql:/docker-entrypoint-initdb.d/roles.sql
-      # Must be superuser to enable pg_net extension
-      - ./volumes/db/webhooks.sql:/etc/postgresql.schema.sql
-      - /mnt/supabase_volume/supabase/data/:/var/lib/postgresql/data
+      - ./volumes/db/realtime.sql:/docker-entrypoint-initdb.d/migrations/99-realtime.sql:Z
+      # Must be superuser to create event trigger
+      - ./volumes/db/webhooks.sql:/docker-entrypoint-initdb.d/init-scripts/98-webhooks.sql:Z
+      # Must be superuser to alter reserved role
+      - ./volumes/db/roles.sql:/docker-entrypoint-initdb.d/init-scripts/99-roles.sql:Z
+      - /mnt/supabase_volume/supabase/data/:/var/lib/postgresql/data:Z
