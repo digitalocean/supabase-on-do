@@ -29,9 +29,9 @@ variable "droplet_image" {
 }
 
 variable "droplet_size" {
-  description = "The unique slug that indentifies the type of Droplet."
+  description = "The unique slug that identifies the type of Droplet."
   type        = string
-  default     = "s-1vcpu-1gb"
+  default     = "c-2"
 }
 
 locals {
